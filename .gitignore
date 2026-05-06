@@ -1,0 +1,70 @@
+# ===============================
+# Build output
+# ===============================
+out/
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# ===============================
+# Visual Studio
+# ===============================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+ipch/
+x64/
+x86/
+Debug/
+Release/
+
+# ===============================
+# Executable and binary files
+# ===============================
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+*.exp
+
+# ===============================
+# Runtime data
+# ===============================
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# ===============================
+# Uploaded files
+# ===============================
+uploads/
+files/
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+
+# ===============================
+# OS files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Temporary files
+# ===============================
+*.tmp
+*.bak
+*.swp
