@@ -1,0 +1,16 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "mysql": {
+    "host": "tcp://127.0.0.1:3306",
+    "user": "webfile_user",
+    "password": "your_password",
+    "database": "webfileserver"
+  },
+  "upload": {
+    "storage_root": "data/files",
+    "max_file_size_mb": 100
+  }
+}

@@ -9,7 +9,7 @@ bool TokenDao::createToken(int userId, const std::string& token)
 {
 	const char* sql = "INSERT INTO tokens (user_id, token, created_at, expired_at)"
 					  "VALUES (?, ?, datetime('now', 'localtime'), datetime('now', '+7 days', 'localtime'));";
-
+	
 	sqlite3_stmt* stmt = nullptr;
 	int result = sqlite3_prepare_v2(db_, sql, -1, &stmt, nullptr);
 	if (result != SQLITE_OK)
