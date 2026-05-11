@@ -18,10 +18,12 @@ set(MYSQL_CONNECTOR_DLL "${MYSQL_CONNECTOR_ROOT}/lib64/mysqlcppconn-10-vs14.dll"
 add_executable(WebFileServer
     main.cpp
 
+    src/AppConfig.cpp
     src/Server.cpp
     src/JsonUtil.cpp
 
     src/db/Database.cpp
+    src/db/MySqlDatabase.cpp
 
     src/dao/UserDao.cpp
     src/dao/TokenDao.cpp
@@ -71,4 +73,37 @@ add_custom_command(TARGET MySqlConnectTest POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${MYSQL_CONNECTOR_DLL}"
     $<TARGET_FILE_DIR:MySqlConnectTest>
+)
+
+
+add_executable(ConfigTest
+    tests/config_test
+    src/AppConfig.cpp
+)
+
+target_include_directories(ConfigTest PRIVATE
+    include
+    third_party
+)
+
+add_executable(MySqlDatabaseTest
+    tests/mysql_database_test.cpp
+    src/AppConfig.cpp
+    src/db/MySqlDatabase.cpp
+)
+
+target_include_directories(MySqlDatabaseTest PRIVATE
+    include
+    third_party
+    "${MYSQL_CONNECTOR_INCLUDE}"
+)
+
+target_link_libraries(MySqlDatabaseTest PRIVATE
+    "${MYSQL_CONNECTOR_LIB}"
+)
+
+add_custom_command(TARGET MySqlDatabaseTest POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${MYSQL_CONNECTOR_DLL}"
+    $<TARGET_FILE_DIR:MySqlDatabaseTest>
 )
